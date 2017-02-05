@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class MicrosoftGraphRequestTest {
 
 	@Test
-	public void test() throws ClientProtocolException, IOException {
+	public void トークンないからエラーになる() throws ClientProtocolException, IOException {
 		String content = new MicrosoftGraphRequest().execute();
 		System.out.println(content);
 
