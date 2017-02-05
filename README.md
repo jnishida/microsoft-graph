@@ -2,10 +2,19 @@
 
 ## 準備
 
-Azure Active Directoryにアプリケーションを登録し、以下を取得する。
+### Office365試用版アカウント登録
+https://products.office.com/ja-jp/try
+
+### Microsoft Azure のサブスクリプション 登録
+
+https://manage.windowsazure.com/
+
+Azure Active Directoryにアプリケーションを登録し、以下を取得します。
 
 - クライアントID
 - リダイレクトURL
+
+【参考】http://blog.rykoma.net/2016/04/03/591/
 
 ## 実際のリクエスト
 
