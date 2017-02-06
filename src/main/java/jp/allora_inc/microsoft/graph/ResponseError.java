@@ -18,7 +18,7 @@ public class ResponseError {
 		@Data
 		public class InnerError {
 			@JsonProperty("request-id")
-			private String request_id;
+			private String requestId;
 			private Date date;
 		}
 
