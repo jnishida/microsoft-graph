@@ -20,4 +20,11 @@ public class MicrosoftGraphRequestTest {
 		assertThat(error.getError().getCode()).isEqualTo("InvalidAuthenticationToken");
 	}
 
+	@Test
+	public void 認証コード取得成功する() throws IOException  {
+		String content = new MicrosoftGraphRequest().authToken();
+		System.out.println(content);
+
+		assertThat(content).doesNotContain("invalid_grant");
+	}
 }
