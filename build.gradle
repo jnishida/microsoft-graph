@@ -1,11 +1,24 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE'
+	}
+}
 apply plugin: 'java'
+apply plugin: 'spring-boot'
 apply plugin: 'eclipse'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+jar {
+	baseName = 'm-graph'
+}
+
 repositories {
-    mavenCentral()
+	mavenCentral()
 }
 
 dependencies {
@@ -13,6 +26,9 @@ dependencies {
   compile 'com.squareup.okhttp:okhttp:2.5.0'
 	compile 'com.fasterxml.jackson.core:jackson-databind:2.3.4'
 	compile 'org.projectlombok:lombok:1.16.12'
+
+	compile 'org.springframework.boot:spring-boot-starter-web'
+	compile 'org.thymeleaf:thymeleaf-spring4'
 
 	testCompile 'junit:junit:4.12'
 	testCompile 'org.assertj:assertj-core:3.6.2'
