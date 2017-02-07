@@ -1,5 +1,7 @@
 package jp.allora_inc.microsoft.graph;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -9,6 +11,11 @@ public class HttpParamBuilder {
 	
 	public HttpParamBuilder append(String key, String value) {
 		params.put(key, value);
+		return this;
+	}
+
+	public HttpParamBuilder append(String key, String value, String enc) throws UnsupportedEncodingException {
+		append(key, URLEncoder.encode(value, enc));
 		return this;
 	}
 

@@ -35,7 +35,7 @@ public class MicrosoftGraphRequest {
 		String params = new HttpParamBuilder()
 			.append("grant_type", "authorization_code")
 			.append("code", code)
-			.append("redirect_uri", "http%3a%2f%2flocalhost%3a8088%2fapp2")
+			.append("redirect_uri", "http://localhost:8088/app2", "UTF-8")
 			.append("client_id", "245d6858-a76e-4a80-8afa-9283c90274a3")
 			.toString();
 
