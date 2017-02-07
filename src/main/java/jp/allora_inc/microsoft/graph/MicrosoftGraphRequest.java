@@ -31,11 +31,16 @@ public class MicrosoftGraphRequest {
 		OkHttpClient client = new OkHttpClient();
 
 		MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
-		RequestBody body = RequestBody.create(mediaType,
-				"grant_type=authorization_code" +
-						"&code=" + code + 
-						"&redirect_uri=http%3a%2f%2flocalhost%3a8088%2fapp2" +
-						"&client_id=245d6858-a76e-4a80-8afa-9283c90274a3");
+
+		String params = new HttpParamBuilder()
+			.append("grant_type", "authorization_code")
+			.append("code", code)
+			.append("redirect_uri", "http%3a%2f%2flocalhost%3a8088%2fapp2")
+			.append("client_id", "245d6858-a76e-4a80-8afa-9283c90274a3")
+			.toString();
+
+		RequestBody body = RequestBody.create(mediaType, params);
+
 		Request request = new Request.Builder().url("https://login.windows.net/common/oauth2/token/").post(body)
 				.addHeader("content-type", "application/x-www-form-urlencoded").addHeader("cache-control", "no-cache")
 				.build();
