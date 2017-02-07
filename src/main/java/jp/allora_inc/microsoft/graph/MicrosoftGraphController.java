@@ -19,13 +19,15 @@ public class MicrosoftGraphController {
 
 	// http://localhost:8088/app1
 	@GetMapping("app1")
-	public String app1(Model model, @RequestParam String code) {
-		return code;
+	public String app1(Model model, @RequestParam String code) throws IOException {
+		String authToken = new MicrosoftGraphRequest().authToken(code);
+		return authToken;
 	}
 
 	// http://localhost:8088/app2
 	@GetMapping("app2")
-	public String app2(Model model, @RequestParam String code) {
-		return code;
+	public String app2(Model model, @RequestParam String code) throws IOException {
+		String authToken = new MicrosoftGraphRequest().authToken(code);
+		return authToken;
 	}
 }
