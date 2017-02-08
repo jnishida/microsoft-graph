@@ -41,9 +41,12 @@ public class MicrosoftGraphRequest {
 
 		RequestBody body = RequestBody.create(mediaType, params);
 
-		Request request = new Request.Builder().url("https://login.windows.net/common/oauth2/token/").post(body)
-				.addHeader("content-type", "application/x-www-form-urlencoded").addHeader("cache-control", "no-cache")
-				.build();
+		Request request = new Request.Builder()
+			.url("https://login.windows.net/common/oauth2/token/")
+			.post(body)
+			.addHeader("content-type", "application/x-www-form-urlencoded")
+			.addHeader("cache-control", "no-cache")
+			.build();
 
 		Response response = client.newCall(request).execute();
 		return response.body().string();

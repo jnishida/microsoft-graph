@@ -1,6 +1,5 @@
 package jp.allora_inc.microsoft.graph;
 
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
