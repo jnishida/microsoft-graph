@@ -32,12 +32,10 @@ public class MicrosoftGraphRequest {
 
 		MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
 
-		String params = new HttpParamBuilder()
-			.append("grant_type", "authorization_code")
-			.append("code", code)
-			.append("redirect_uri", "http://localhost:8088/app2", "UTF-8")
-			.append("client_id", "245d6858-a76e-4a80-8afa-9283c90274a3")
+		String params = App2OAuthParamBuilder
+			.withCode(code)
 			.toString();
+		System.out.println(params);
 
 		RequestBody body = RequestBody.create(mediaType, params);
 
