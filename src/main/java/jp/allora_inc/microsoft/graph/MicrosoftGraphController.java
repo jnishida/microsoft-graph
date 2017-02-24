@@ -14,7 +14,7 @@ public class MicrosoftGraphController {
 	@GetMapping("me")
 	public String me(Model model) throws ClientProtocolException, IOException {
 		MicrosoftGraphRequest request = new MicrosoftGraphRequest();
-		return request.execute();
+		return request.me();
 	}
 
 	// http://localhost:8088/app1

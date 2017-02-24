@@ -1,13 +1,8 @@
 package jp.allora_inc.microsoft.graph;
 
 import java.io.IOException;
-import org.apache.http.HttpEntity;
+
 import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
 
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -16,20 +11,20 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
 public class MicrosoftGraphRequest {
-	public String execute() throws ClientProtocolException, IOException {
-		String URL = "https://graph.microsoft.com/v1.0/me/";
-		HttpGet request = new HttpGet(URL);
+	public String me() throws ClientProtocolException, IOException {
+		Request request = new Request.Builder()
+			.url("https://graph.microsoft.com/v1.0/me/")
+			.get()
+			.addHeader("content-type", "application/x-www-form-urlencoded")
+			.addHeader("cache-control", "no-cache")
+			.build();
 
-		try (CloseableHttpClient client = HttpClientBuilder.create().build()) {
-			CloseableHttpResponse response = client.execute(request);
-			HttpEntity entity = response.getEntity();
-			return EntityUtils.toString(entity);
-		}
+		OkHttpClient client = new OkHttpClient();
+		Response response = client.newCall(request).execute();
+		return response.body().string();
 	}
 
 	public String authToken(String code) throws IOException {
-		OkHttpClient client = new OkHttpClient();
-
 		MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
 
 		String params = App2OAuthParamBuilder
@@ -46,6 +41,7 @@ public class MicrosoftGraphRequest {
 			.addHeader("cache-control", "no-cache")
 			.build();
 
+		OkHttpClient client = new OkHttpClient();
 		Response response = client.newCall(request).execute();
 		return response.body().string();
 	}

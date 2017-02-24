@@ -11,7 +11,7 @@ public class MicrosoftGraphRequestTest {
 
 	@Test
 	public void トークンないからエラーになる() throws ClientProtocolException, IOException {
-		String content = new MicrosoftGraphRequest().execute();
+		String content = new MicrosoftGraphRequest().me();
 		System.out.println(content);
 
 		ObjectMapper mapper = new ObjectMapper();
