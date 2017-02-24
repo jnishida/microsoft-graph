@@ -2,7 +2,6 @@ package jp.allora_inc.microsoft.graph;
 
 import java.io.IOException;
 
-import org.apache.http.client.ClientProtocolException;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MicrosoftGraphController {
 	// http://localhost:8088/me
 	@GetMapping("me")
-	public String me(Model model) throws ClientProtocolException, IOException {
+	public String me(Model model) throws IOException {
 		MicrosoftGraphRequest request = new MicrosoftGraphRequest();
 		return request.me();
 	}

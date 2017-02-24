@@ -2,8 +2,6 @@ package jp.allora_inc.microsoft.graph;
 
 import java.io.IOException;
 
-import org.apache.http.client.ClientProtocolException;
-
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -11,7 +9,7 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
 public class MicrosoftGraphRequest {
-	public String me() throws ClientProtocolException, IOException {
+	public String me() throws IOException {
 		Request request = new Request.Builder()
 			.url("https://graph.microsoft.com/v1.0/me/")
 			.get()

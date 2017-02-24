@@ -1,16 +1,18 @@
 package jp.allora_inc.microsoft.graph;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
 import java.io.IOException;
-import org.apache.http.client.ClientProtocolException;
+
 import org.junit.Ignore;
 import org.junit.Test;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MicrosoftGraphRequestTest {
 
 	@Test
-	public void トークンないからエラーになる() throws ClientProtocolException, IOException {
+	public void トークンないからエラーになる() throws IOException {
 		String content = new MicrosoftGraphRequest().me();
 		System.out.println(content);
 
