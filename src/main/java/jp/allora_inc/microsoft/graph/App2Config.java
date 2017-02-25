@@ -17,7 +17,7 @@ public class App2Config {
 	public App2Config() throws IOException {
 		Resource resource = new ClassPathResource("/application.properties");
 		Properties props = PropertiesLoaderUtils.loadProperties(resource);
-		redirectUri = props.getProperty("app2.redirect.uri");
+		redirectUri = props.getProperty("app2.redirectUri");
 		clientId = props.getProperty("app2.client.id");
 	}
 }

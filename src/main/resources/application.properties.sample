@@ -1,9 +1,9 @@
 server.port=8088
 
-app1.redirect.uri=http://localhost:8088/app1
+app1.redirectUri=http://localhost:8088/app1
 app1.client.id=xxxxx
 app1.client.secret=xxxxx
 
-app2.redirect.uri=http://localhost:8088/app2
+app2.redirectUri=http://localhost:8088/app2
 app2.client.id=2xxxxx
 

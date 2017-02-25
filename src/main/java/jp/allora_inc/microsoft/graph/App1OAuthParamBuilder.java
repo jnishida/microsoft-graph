@@ -5,7 +5,7 @@ import java.io.UnsupportedEncodingException;
 import org.springframework.beans.factory.annotation.Value;
 
 public class App1OAuthParamBuilder extends HttpParamBuilder {
-	@Value("${app1.redirect.uri}")
+	@Value("${app1.redirectUri}")
 	private String redirectUri;
 
 	@Value("${qpp1.client.id}")
